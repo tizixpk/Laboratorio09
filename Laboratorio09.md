@@ -1,4 +1,5 @@
-### Laboratorio: Gestión de procesos
+# Laboratorio: Gestión de procesos
+## Pirez Tiziano 4to 4ta
 
 #### 1. ¿Qué es el PID?
 El PID (Process Identifier) es un número único asignado a cada proceso en ejecución en un sistema operativo. Este identificador permite al sistema y a los administradores de sistemas gestionar y controlar procesos específicos.
@@ -25,16 +26,16 @@ nice -n 19 ls -R / | grep ".jpg"
 ```
 
 #### 6. Obtener el PID del proceso `ls` y cambiar su prioridad
-1. Abrir una terminal y ejecutar:
+a. Abrir una terminal y ejecutar:
     ```bash
     ps -u $USER
     ```
-2. Identificar el PID del proceso `ls` en la lista.
-3. Cambiar su prioridad:
+b. Identificar el PID del proceso `ls` en la lista.
+c. Cambiar su prioridad:
     ```bash
     renice -n -20 -p [PID]
     ```
-4. Terminar el proceso correctamente:
+d. Terminar el proceso correctamente:
     ```bash
     kill -SIGTERM [PID]
     ```
@@ -50,11 +51,11 @@ pstree -p | grep nano
 ```
 
 #### 9. Establecer prioridad normal al editor `nano` y terminar el proceso
-1. Con la orden `top`, buscar el PID del `nano` y ajustarlo:
+a. Con la orden `top`, buscar el PID del `nano` y ajustarlo:
     ```bash
     renice -n 0 -p [PID]
     ```
-2. Terminar el proceso desde `top` o con:
+b. Terminar el proceso desde `top` o con:
     ```bash
     kill -SIGTERM [PID]
     ```
@@ -75,7 +76,6 @@ find / -name "*.gif" > todoslosgif &
 jobs
 ```
 
-### Procesos en 1º plano
 
 #### 13. Lanzar un proceso de 600 segundos en 1º plano
 ```bash
@@ -83,22 +83,22 @@ sleep 600
 ```
 
 #### 14. Matar el proceso
-1. Identificar el PID:
+a. Identificar el PID:
     ```bash
     ps -u $USER
     ```
-2. Terminar el proceso:
+b. Terminar el proceso:
     ```bash
     kill [PID]
     ```
 Observamos que el proceso `sleep` ya no está activo y el sistema vuelve al estado inicial.
 
 #### 15. Detener el proceso sin cancelarlo
-1. Detener el proceso:
+a. Detener el proceso:
     ```bash
     kill -SIGSTOP [PID]
     ```
-2. Observamos que el proceso está detenido, pero no cancelado, y puede ser continuado.
+b. Observamos que el proceso está detenido, pero no cancelado, y puede ser continuado.
 
 #### 16. Continuar el proceso en 1º plano
 ```bash
@@ -106,11 +106,11 @@ kill -SIGCONT [PID]
 ```
 
 #### 17. Continuar un proceso detenido en 2º plano
-1. Con `bg`:
+a. Con `bg`:
     ```bash
     bg %[job_number]
     ```
-2. Con `kill`:
+b. Con `kill`:
     ```bash
     kill -SIGCONT [PID]
     ```
@@ -125,11 +125,11 @@ jobs -l
 Un proceso en segundo plano que ha terminado no aparecerá en la salida de `jobs` porque `jobs` solo muestra trabajos activos.
 
 #### 20. Detener y continuar en 2º plano un proceso lanzado en 1º plano
-1. Detener el proceso:
+a. Detener el proceso:
     ```bash
     kill -SIGSTOP [PID]
     ```
-2. Continuar en segundo plano:
+b. Continuar en segundo plano:
     ```bash
     bg %[job_number]
     ```
