@@ -51,6 +51,7 @@ pstree -p | grep nano
 ```
 
 ## 9. Establecer prioridad normal al editor `nano` y terminar el proceso
+
 a. Con la orden `top`, buscar el PID del `nano` y ajustarlo:
     ```bash
     renice -n 0 -p [PID]
